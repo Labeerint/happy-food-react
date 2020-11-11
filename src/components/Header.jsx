@@ -1,6 +1,6 @@
 import React from "react"
-import logo from "./assets/img/logo.png";
-
+import logo from "../assets/img/logo.png";
+import {Button} from "./index";
 
 function Header() {
     return (
@@ -10,7 +10,7 @@ function Header() {
                     <img width="600" src={logo} alt="Pizza logo"/>
                 </div>
                 <div className="header__cart">
-                    <a href="/cart.html" className="button button--cart">
+                    <Button className='button--cart'>
                         <span>520 ₽</span>
                         <div className="button__delimiter"></div>
                         <svg
@@ -43,7 +43,7 @@ function Header() {
                             />
                         </svg>
                         <span>3</span>
-                    </a>
+                    </Button>
                 </div>
             </div>
         </div>
