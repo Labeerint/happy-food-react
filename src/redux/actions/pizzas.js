@@ -1,9 +1,9 @@
 
-const setPizzas = (pizzas) =>({
+export const setPizzas = (pizzas) =>({
     type: 'SET_PIZZAS',
     payload: pizzas
 })
 
-const isLoad = () =>({
+export const isLoad = () =>({
     type: 'IS_LOAD'
 })

@@ -1,11 +1,13 @@
 import React from 'react'
 
-function Categories({categories, onClick}){
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const Categories = React.memo(function Categories({categories, onClick}){
 
     const [activeItem, setActiveItem] = React.useState(null);
 
     const onSelectItem = (index) =>{
         setActiveItem(index)
+        onClick(index)
     }
 
     return(
@@ -20,6 +22,6 @@ function Categories({categories, onClick}){
             </ul>
         </div>
     )
-}
+})
 
 export default Categories;
