@@ -1,7 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
+import Button from "./Button";
 
-function PizzaBlock({name, imageUrl, price, types, sizes}) {
+function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, addedCount}) {
     const typeNames = ['тонкое', 'традиционное']
     const sizesNames = [26, 30, 40]
     const [activeType, setActiveType] = React.useState(0)
@@ -13,6 +14,17 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
 
     const onSelectType = (index) =>{
         setActiveType(index)
+    }
+
+    const onAddProduct = () =>{
+        const product = {
+            id,
+            name,
+            imageUrl,
+            price,
+            type: typeNames[activeType],
+            size: sizesNames[activeSize]}
+        addProductToCart(product)
     }
 
     return(
@@ -36,8 +48,6 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
                             >{type}</li>
                         ))
                     }
-                    <li className="active">тонкое</li>
-                    <li>традиционное</li>
                 </ul>
                 <ul>
                     {
@@ -54,7 +64,7 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price} ₽</div>
-                <div className="button button--outline button--add">
+                <Button className="button--add" onClick={onAddProduct} outline>
                     <svg
                         width="12"
                         height="12"
@@ -68,8 +78,9 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
-                </div>
+                    {console.log(addedCount)}
+                    {addedCount && <i>{addedCount}</i>}
+                </Button>
             </div>
         </div>
     )
