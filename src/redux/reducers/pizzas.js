@@ -8,11 +8,12 @@ const pizzasReducer = (state = initialState, action) => {
         return {
             ...state,
             pizzas: action.payload,
+            isLoad: true
         }
-    }else if(action.type === "IS_LOAD"){
+    }else if(action.type === 'SET_LOADED'){
         return {
             ...state,
-            isLoad: true
+            isLoad: action.payload
         }
     }
     return state

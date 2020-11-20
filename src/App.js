@@ -2,19 +2,25 @@ import React from 'react'
 import {Header} from "./components";
 import {Cart, Home} from "./pages";
 import {Route} from "react-router-dom";
-import axios from 'axios'
-import {useDispatch} from "react-redux";
-import {setPizzas} from "./redux/actions/pizzas";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchPizzas} from "./redux/actions/pizzas";
 
 function App( ) {
     const dispatch = useDispatch();
+    const pizzas = useSelector(({pizzasReducer}) => pizzasReducer.pizzas)
+    const {category, sortBy} = useSelector(({filtersReducer}) => {
+        return{
+            category: filtersReducer.category,
+            sortBy: filtersReducer.sortBy
+        }
+    })
 
     React.useEffect(()=>{
-        axios.get('http://localhost:3001/pizzas')
-            .then(({data})=>{
-                dispatch(setPizzas(data))
-            })
-    }, [])
+        if(!pizzas.lenth){
+            dispatch(fetchPizzas(category, sortBy))
+        }
+
+    }, [category, sortBy])
 
   return (
       <div className="wrapper">
