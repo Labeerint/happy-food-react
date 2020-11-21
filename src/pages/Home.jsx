@@ -5,7 +5,7 @@ import {setCategory, setSortBy} from "../redux/actions/filters";
 import {addProductToCart} from "../redux/actions/cart";
 
 
-const categories=['Raz', 'Dva', 'Tri']
+const categories=['Обычные', 'На мангале', 'Супы и рагу']
 const items=[
     {name:"популярности", type: "rating"},
     {name:"цене", type: "price"},
@@ -27,7 +27,6 @@ function Home(){
     const isLoaded = useSelector(({pizzasReducer}) => pizzasReducer.isLoad)
     const allCartItems = useSelector(({cartReducer}) => cartReducer.items)
 
-    console.log(allCartItems)
 
     const onSelectCategory = React.useCallback( index => {
         dispatch(setCategory(index))
@@ -53,7 +52,7 @@ function Home(){
                     ? (pizzas && pizzas.map((pizzaItem) => {return <PizzaBlock key={pizzaItem.id}
                                                                                {...pizzaItem}
                                                                                addProductToCart={addProductCart}
-                                                                               addedCount={allCartItems && allCartItems[pizzaItem.id].length}
+                                                                               addedCount={Object.keys(allCartItems).length !== 0 && allCartItems[pizzaItem.id]}
                     />}))
                     : (Array(12).fill(0).map((_, index) => <LoadingBlock key={index}/>))
                 }

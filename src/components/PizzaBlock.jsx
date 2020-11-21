@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import Button from "./Button";
 
 function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, addedCount}) {
-    const typeNames = ['тонкое', 'традиционное']
-    const sizesNames = [26, 30, 40]
+    const typeNames = ['без соуса', 'с соусом']
+    const sizesNames = ['rare', 'medium', 'done']
     const [activeType, setActiveType] = React.useState(0)
     const [activeSize, setActiveSize] = React.useState(0)
 
@@ -39,7 +39,7 @@ function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, 
                 <ul>
                     {
                         typeNames.map((type, index) => (
-                            <li key={type}
+                            <li key={index}
                                 onClick={() => onSelectType(index)}
                                 className={classNames({
                                     active: activeType === index,
@@ -56,14 +56,14 @@ function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, 
                                 onClick={()=> onSelectSize(index)}
                                 className={classNames({
                                 active: activeSize === index,
-                                disabled: !sizes.includes(size)
+                                disabled: !sizes.includes(index)
                             })}
-                            >{size} см.</li>))
+                            >{size}</li>))
                     }
                 </ul>
             </div>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от {price} ₽</div>
+                <div className="pizza-block__price">от {price} $</div>
                 <Button className="button--add" onClick={onAddProduct} outline>
                     <svg
                         width="12"
@@ -78,8 +78,7 @@ function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, 
                         />
                     </svg>
                     <span>Добавить</span>
-                    {console.log(addedCount)}
-                    {addedCount && <i>{addedCount}</i>}
+                    {addedCount && <i>{addedCount.length}</i>}
                 </Button>
             </div>
         </div>
