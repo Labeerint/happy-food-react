@@ -78,7 +78,7 @@ function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, 
                         />
                     </svg>
                     <span>Добавить</span>
-                    {addedCount && <i>{addedCount.length}</i>}
+                    {addedCount && <i>{addedCount.items.length}</i>}
                 </Button>
             </div>
         </div>
