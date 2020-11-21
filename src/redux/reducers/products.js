@@ -3,8 +3,8 @@ const initialState = {
     isLoad: false
 }
 
-const pizzasReducer = (state = initialState, action) => {
-    if(action.type === "SET_PIZZAS"){
+const productsReducer = (state = initialState, action) => {
+    if(action.type === "SET_PRODUCTS"){
         return {
             ...state,
             pizzas: action.payload,
@@ -19,4 +19,4 @@ const pizzasReducer = (state = initialState, action) => {
     return state
 }
 
-export default pizzasReducer
+export default productsReducer

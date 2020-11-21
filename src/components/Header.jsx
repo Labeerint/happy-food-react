@@ -11,7 +11,7 @@ function Header() {
             <div className="container">
                 <Link to='/'>
                     <div className="header__logo">
-                        <img width="600" src={logo} alt="Pizza logo"/>
+                        <img width="600" src={logo} alt="logo"/>
                     </div>
                 </Link>
                 <div className="header__cart">

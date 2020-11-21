@@ -5,14 +5,14 @@
 @import 'components/all';
 
 body {
-  background-color: $background;
+  background: linear-gradient(90deg, #faf0cd, #fab397);
 }
 
 .wrapper {
-  width: calc(100vw - 100px);
+  margin: 0 auto;
+  width: 100vw;
   height: 100%;
-  background-color: #fff;
-  margin: 50px auto;
+  background: #fff;
   border-radius: 10px;
   max-width: 1400px;
 }

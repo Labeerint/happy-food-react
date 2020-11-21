@@ -3,7 +3,7 @@ import {Header} from "./components";
 import {Cart, Home} from "./pages";
 import {Route} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchPizzas} from "./redux/actions/pizzas";
+import {fetchProducts} from "./redux/actions/products";
 
 function App( ) {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function App( ) {
 
     React.useEffect(()=>{
         if(!pizzas.lenth){
-            dispatch(fetchPizzas(category, sortBy))
+            dispatch(fetchProducts(category, sortBy))
         }
 
     }, [category, sortBy])

@@ -2,11 +2,11 @@ import React from 'react'
 import classNames from 'classnames'
 import Button from "./Button";
 
-function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, addedCount}) {
+function ProductBlock({id, name, imageUrl, price, types, sizes, addProductToCart, addedCount}) {
     const typeNames = ['без соуса', 'с соусом']
     const sizesNames = ['rare', 'medium', 'done']
     const [activeType, setActiveType] = React.useState(0)
-    const [activeSize, setActiveSize] = React.useState(0)
+    const [activeSize, setActiveSize] = React.useState(2)
 
     const onSelectSize = (index) =>{
         setActiveSize(index)
@@ -85,4 +85,4 @@ function PizzaBlock({id, name, imageUrl, price, types, sizes, addProductToCart, 
     )
 }
 
-export default PizzaBlock
+export default ProductBlock

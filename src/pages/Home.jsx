@@ -46,7 +46,7 @@ function Home(){
                 <Categories activeCategory={category} onClickCategory={(name)=> onSelectCategory(name)} categories={categories}/>
                 <SortPopup sortByItem={sortBy} items={items} onClickSort={onSelectSortType}/>
             </div>
-            <h2 className="content__title">Все пиццы</h2>
+            <h2 className="content__title">Все блюда</h2>
             <div className="content__items">
                 {isLoaded
                     ? (pizzas && pizzas.map((pizzaItem) => {return <PizzaBlock key={pizzaItem.id}

@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
 import filtersReducer from "./filters";
-import pizzasReducer from "./pizzas";
+import productsReducer from "./products";
 import cartReducer from "./cart";
 
-const reducers = combineReducers({filtersReducer, pizzasReducer, cartReducer})
+const reducers = combineReducers({filtersReducer, pizzasReducer: productsReducer, cartReducer})
 
 export default reducers
